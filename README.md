@@ -1,3 +1,2 @@
 # Projekt
-
-Vychází z deskové hry monopoly, obsahuje zvuky, režim více hráčů, uložení hry, statistiky, hod kostkou zatřepáním, možnost výběru figurky
+Hra na téma deskové hra monopoly. Bude obsahovat režim pro více hráčů, zvuky (možnost vypnutí), uložení rozehrané hry, high score (statistiky), hod kostkou je možný zatřepáním, hráč si může vybrat svou figurku.

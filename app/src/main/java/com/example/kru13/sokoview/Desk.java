@@ -43,6 +43,11 @@ public class Desk {
         return 0;//pokud vlastni hrac
     }
 
+    public void buy(int position,int player,Player pl){
+        majetek[position]=player;
+        pl.majetekhrace.add(position);
+    }
+
 
 
     public int tahlogika2(int position,int player){

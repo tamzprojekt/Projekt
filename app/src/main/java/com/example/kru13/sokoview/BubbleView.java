@@ -29,6 +29,7 @@ import java.util.Random;
 public class BubbleView extends View {
 
     public MediaPlayer mpbview;//zvuk hod kostkou
+    public boolean nextplayer=true;//predani tahu
 
     Bitmap b3;
     Bitmap b4;
@@ -73,6 +74,10 @@ public class BubbleView extends View {
         for(int i=0;i<Settings.pocethracu;i++){
             pl[i]=new Player();
         }
+    }
+
+    public void buy(){
+        desk.tahlogika(pl[activeplayer].position,activeplayer,pl[activeplayer]);
     }
 
 
@@ -158,10 +163,11 @@ public class BubbleView extends View {
         }
     }
 
-    private void pohyb() {
+    public void pohyb() {
         /*final MediaPlayer mp = MediaPlayer.create(this, R.raw.roll);
         mp.start();*/
         if(Settings.soundenabled) mpbview.start();// prehrani zvuku hod kostkou
+        nextplayer=false;//nemuze hrat dalsi hrac
 
 
 
@@ -212,7 +218,10 @@ public class BubbleView extends View {
                 break;
             }
             case MotionEvent.ACTION_UP:{
-                pohyb();
+                if(nextplayer==true){
+                    pohyb();
+                }
+
                 break;
             }
         }
@@ -276,16 +285,10 @@ public class BubbleView extends View {
         b5=BitmapFactory.decodeResource(getResources(), R.drawable.orange);
         canvas.drawBitmap(bmp[kartabmp], 780, 5, paint);
     }
-    protected void move(float f, float g) {
-        x = (int) (x + f);
-        y = (int) (y + g);
 
-        if(f>11||f<8) {
-            Toast.makeText(getContext(), "x: " + g + " f " + f, Toast.LENGTH_SHORT).show();
-            //player1x+=random();
-            //pohyb();
+    protected void move() {
+        if(nextplayer==true){
+            pohyb();
         }
-
-
     }
 }

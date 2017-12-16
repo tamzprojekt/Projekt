@@ -3,27 +3,18 @@ package com.example.kru13.sokoview;
 import android.app.Activity;
 import android.content.Context;
 import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Random;
 
 public class Hra extends Activity  {
-
-    private SensorManager manager;
-    private Sensor accel;
-    private SokoView sokoView;
-    private BubbleView bubbleView=null;
 
     // The following are used for the shake detection
     private SensorManager mSensorManager;
@@ -33,16 +24,10 @@ public class Hra extends Activity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //sokoView.findViewById(R.id.sokoview);
-        //sokoView=new SokoView(this);
-        //sokoView= (SokoView) findViewById(R.id.sokoView);
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //setContentView(R.layout.activity_hra);
-        //bubbleView = new BubbleView(this);
-        //bubbleView= (BubbleView) findViewById(R.id.bubbleView);
         setContentView(R.layout.activity_hra);
         // ShakeDetector initialization
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -64,6 +49,9 @@ public class Hra extends Activity  {
         if(Settings.soundenabled==true){
             sendsound();
         }
+        sendtextview();
+
+
         final Button button = (Button) findViewById(R.id.nextplayerbut);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -77,15 +65,15 @@ public class Hra extends Activity  {
             }
         });
 
-
     }
+
+
 
     private void handleShakeEvent(int count) {
         Toast.makeText(getBaseContext(),"Shake", Toast.LENGTH_SHORT).show();
         BubbleView bubbleView= (BubbleView) findViewById(R.id.bubbleView);//musi byt tady a ne v oncreate
         bubbleView.move();
     }
-
 
     @Override
     public void onResume() {
@@ -104,7 +92,6 @@ public class Hra extends Activity  {
 
 
 
-
     public void sendsound(){
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.roll);
         BubbleView bubbleView= (BubbleView) findViewById(R.id.bubbleView);//musi byt tady a ne v oncreate
@@ -118,6 +105,17 @@ public class Hra extends Activity  {
     public void buy(){
         BubbleView bubbleView= (BubbleView) findViewById(R.id.bubbleView);//musi byt tady a ne v oncreate
         bubbleView.buy();
+    }
+    public void sendtextview(){
+        TextView view= (TextView) findViewById(R.id.hractext);
+        BubbleView bubbleView= (BubbleView) findViewById(R.id.bubbleView);
+        bubbleView.texthrac=view;
+        view= (TextView) findViewById(R.id.penizetext);
+        bubbleView.textpenize=view;
+        view= (TextView) findViewById(R.id.hodnotatext);
+        bubbleView.texthodnota=view;
+        view= (TextView) findViewById(R.id.vlastniktext);
+        bubbleView.textvlastnik=view;
     }
 
 

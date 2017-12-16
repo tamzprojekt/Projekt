@@ -18,6 +18,9 @@ public class Player {
     public int posx=650;
     public int posy=615;
 
+    public int animposx=650;
+    public int animposy=615;
+
     public int money=200000;
 
     public int hodnota(){

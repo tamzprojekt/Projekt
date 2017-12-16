@@ -15,7 +15,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Level0" />
         <activity android:name=".Hra" />
         <activity android:name=".Settings"></activity>
     </application>

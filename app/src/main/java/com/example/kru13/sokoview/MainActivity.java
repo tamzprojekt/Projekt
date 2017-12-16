@@ -9,25 +9,11 @@ import android.widget.ArrayAdapter;
 
 public class MainActivity extends Activity {
 
-    private ArrayAdapter mAdapter;
-
-    public int lolec;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
-        //ListView lv= (ListView) findViewById(R.id.listik);
-
-        //setContentView(new SokoView(this));
-
-      /*  View button = findViewById(R.id.button_reset);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                setContentView(R.layout.activity_main);
-            }
-        });*/
-
 
         View button = findViewById(R.id.novahrabut);
         button.setOnClickListener(new View.OnClickListener() {

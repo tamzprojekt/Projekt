@@ -64,6 +64,12 @@ public class Hra extends Activity  {
                 buy();
             }
         });
+        final Button button3 = (Button) findViewById(R.id.housebut);
+        button3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                buyhouse();
+            }
+        });
 
     }
 
@@ -100,7 +106,8 @@ public class Hra extends Activity  {
 
     public void nextplayer(){
         BubbleView bubbleView= (BubbleView) findViewById(R.id.bubbleView);//musi byt tady a ne v oncreate
-        bubbleView.nextplayer=true;
+        //bubbleView.nextplayer=true;
+        bubbleView.nextplayer();
     }
     public void buy(){
         BubbleView bubbleView= (BubbleView) findViewById(R.id.bubbleView);//musi byt tady a ne v oncreate
@@ -116,6 +123,13 @@ public class Hra extends Activity  {
         bubbleView.texthodnota=view;
         view= (TextView) findViewById(R.id.vlastniktext);
         bubbleView.textvlastnik=view;
+        view= (TextView) findViewById(R.id.domytext);
+        bubbleView.textdomy=view;
+    }
+
+    public void buyhouse(){
+        BubbleView bubbleView= (BubbleView) findViewById(R.id.bubbleView);
+        bubbleView.buyhouse();
     }
 
 

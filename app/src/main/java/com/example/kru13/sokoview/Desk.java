@@ -148,6 +148,8 @@ public class Desk {
             domy[position]+=1;
             if(pl.money>=5000){
                 pl.money=pl.money-5000;
+                Statistic.pocetkoupenychdomu+=1;
+                Statistic.ulozenistatistik();
             }
             else{
                 return -2;//nedostatek penez

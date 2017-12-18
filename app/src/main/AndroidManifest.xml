@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Hra" />
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".Settings" />
+        <activity android:name=".Statistic"></activity>
     </application>
 
 </manifest>

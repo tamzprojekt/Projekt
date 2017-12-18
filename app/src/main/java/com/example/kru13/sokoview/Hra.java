@@ -50,6 +50,8 @@ public class Hra extends Activity  {
             sendsound();
         }
         sendtextview();
+        Statistic.pocetspustenychher+=1;
+        Statistic.ulozenistatistik();
 
 
         final Button button = (Button) findViewById(R.id.nextplayerbut);

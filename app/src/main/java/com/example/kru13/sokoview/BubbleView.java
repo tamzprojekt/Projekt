@@ -138,107 +138,108 @@ public class BubbleView extends View {
             public void run() {
 
                 int y=0;
-                /*if(pl[activeplayeranim].position==18){
+                if(predchozipozice<pl[activeplayeranim].position) {//animace vlevo nahoru doprava
+                    while (y > posxleft) {
+                        pl[activeplayeranim].posx += -1;
+                        postInvalidate();
+                        try {
+                            Thread.sleep(1);
+                        } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                        }
+                        y--;
+                    }
+                    y = 0;
+                    while (y > posyup) {
+                        Log.d("bb", "bbb");
+                        pl[activeplayeranim].posy += -1;
+                        postInvalidate();
+                        try {
+                            Thread.sleep(1);
+                        } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                        }
+                        y--;
+                    }
+                    y = 0;
+                    while (y < posxright) {
+                        pl[activeplayeranim].posx += 1;
+                        postInvalidate();
+                        try {
+                            Thread.sleep(1);
+                        } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                        }
+                        y++;
+                    }
+                    y = 0;
+                    while (y < posydown) {
+                        pl[activeplayeranim].posy += 1;
+                        postInvalidate();
+                        try {
+                            Thread.sleep(1);
+                        } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                        }
+                        y++;
+                    }
+                }
+
+                else{//animace vpravo-dolu-doleva
+                    while (y < posxright) {
+                        pl[activeplayeranim].posx += 1;
+                        postInvalidate();
+                        try {
+                            Thread.sleep(1);
+                        } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                        }
+                        y++;
+                    }
+                    y=0;
+                    while (y < posydown) {
+                        pl[activeplayeranim].posy += 1;
+                        postInvalidate();
+                        try {
+                            Thread.sleep(1);
+                        } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                        }
+                        y++;
+                    }
+                    y=0;
+                    while (y > posxleft) {
+                        pl[activeplayeranim].posx += -1;
+                        postInvalidate();
+                        try {
+                            Thread.sleep(1);
+                        } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                        }
+                        y--;
+                    }
+                    y=0;
+                    while (y > posyup) {
+                        //Log.d("bb", "bbb");
+                        pl[activeplayeranim].posy += -1;
+                        postInvalidate();
+                        try {
+                            Thread.sleep(1);
+                        } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                        }
+                        y--;
+                    }
+                }
+                if(pl[activeplayeranim].position==18){//presun do vezeni
+                    //pl[activeplayer-1].position=6;
+                    pl[activeplayeranim].position=6;
+                    pl[activeplayeranim].posx=32;
                     pl[activeplayeranim].posy=615;
-                    pl[activeplayeranim].posy=32;
-                    invalidate();
-                }*/
-                if(predchozipozice<pl[activeplayeranim].position) {
-                    while (y > posxleft) {
-                        pl[activeplayeranim].posx += -1;
-                        postInvalidate();
-                        try {
-                            Thread.sleep(1);
-                        } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                        }
-                        y--;
-                    }
-                    y = 0;
-                    while (y > posyup) {
-                        Log.d("bb", "bbb");
-                        pl[activeplayeranim].posy += -1;
-                        postInvalidate();
-                        try {
-                            Thread.sleep(1);
-                        } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                        }
-                        y--;
-                    }
-                    y = 0;
-                    while (y < posxright) {
-                        pl[activeplayeranim].posx += 1;
-                        postInvalidate();
-                        try {
-                            Thread.sleep(1);
-                        } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                        }
-                        y++;
-                    }
-                    y = 0;
-                    while (y < posydown) {
-                        pl[activeplayeranim].posy += 1;
-                        postInvalidate();
-                        try {
-                            Thread.sleep(1);
-                        } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                        }
-                        y++;
-                    }
+                    pl[activeplayeranim].money-=5000;
+                    //Toast.makeText(getContext(), "Zaplaceno 5000 za vezeni",Toast.LENGTH_SHORT).show();
+                    //zmenatextu();//nejde
                 }
-
-                else{
-                    while (y < posxright) {
-                        pl[activeplayeranim].posx += 1;
-                        postInvalidate();
-                        try {
-                            Thread.sleep(1);
-                        } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                        }
-                        y++;
-                    }
-                    y=0;
-                    while (y < posydown) {
-                        pl[activeplayeranim].posy += 1;
-                        postInvalidate();
-                        try {
-                            Thread.sleep(1);
-                        } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                        }
-                        y++;
-                    }
-                    y=0;
-                    while (y > posxleft) {
-                        pl[activeplayeranim].posx += -1;
-                        postInvalidate();
-                        try {
-                            Thread.sleep(1);
-                        } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                        }
-                        y--;
-                    }
-                    y=0;
-                    while (y > posyup) {
-                        Log.d("bb", "bbb");
-                        pl[activeplayeranim].posy += -1;
-                        postInvalidate();
-                        try {
-                            Thread.sleep(1);
-                        } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                        }
-                        y--;
-                    }
-                }
-                /*if(pl[activeplayeranim].position==18){
-
-                }*/
 
                 if(activeplayeranim<Settings.pocethracu-1){
                     activeplayeranim++;
@@ -393,31 +394,17 @@ public class BubbleView extends View {
         for(int i=0;i<random+random2;i++){
             pl[activeplayer].position+=1;
             if( pl[activeplayer].position<=6){
-                //Toast.makeText(getContext(), "LOL"+player1pos,Toast.LENGTH_SHORT).show();
-               // pl[activeplayer].posx-=103;
-                //animation(-1, 103, "vertical");
                 posxleft-=103;
-
-                //Toast.makeText(getContext(), "DONE",Toast.LENGTH_SHORT).show();
             }
 
             if( pl[activeplayer].position>=7&& pl[activeplayer].position<13){
-                //Toast.makeText(getContext(), player1pos,Toast.LENGTH_SHORT).show();
-                //pl[activeplayer].posy-=98;
                 posyup-=98;
-                //animation(-1,98,"horizontal");
             }
             if( pl[activeplayer].position>=13&& pl[activeplayer].position<19){
-                //Toast.makeText(getContext(), player1pos,Toast.LENGTH_SHORT).show();
-                //pl[activeplayer].posx+=103;
                 posxright+=103;
-                //animation(1,103,"vertical");
             }
             if( pl[activeplayer].position>=19){
-                //Toast.makeText(getContext(), player1pos,Toast.LENGTH_SHORT).show();
-                //pl[activeplayer].posy+=98;
                 posydown+=98;
-                //animation(1,98,"horizontal");
             }
             if ( pl[activeplayer].position==24){
                 pl[activeplayer].position=0;
@@ -426,12 +413,15 @@ public class BubbleView extends View {
             }
             //invalidate();
         }
-        //Toast.makeText(getContext(), posxleft+" lefl",Toast.LENGTH_SHORT).show();
         animation(random+random2,posxleft,posyup,posxright,posydown,predchozipozice);
         //desk.tahlogika(pl[activeplayer].position,activeplayer,pl[activeplayer]);
         platba();
         zobrazkartu(pl[activeplayer].position);
         zmenatextu();
+        /*Statistic statistic=new Statistic();
+        statistic.ulozenistatistik();*/
+        Statistic.pocettahu+=1;
+        Statistic.ulozenistatistik();
         //invalidate();
 
     }
@@ -439,10 +429,6 @@ public class BubbleView extends View {
     public boolean onTouchEvent(MotionEvent touchevent){
         switch (touchevent.getAction()){
             case MotionEvent.ACTION_DOWN:{
-                x1=touchevent.getX();
-                y1=touchevent.getY();
-                //Toast.makeText(getContext(), "x: " +x1 + ":y:"+y1,Toast.LENGTH_SHORT).show();
-               // Toast.makeText(getContext(), "x: "+pl[1].hodnota(),Toast.LENGTH_SHORT).show();//////////////////FUNGUJE STATIC
                 break;
             }
             case MotionEvent.ACTION_UP:{
@@ -520,33 +506,6 @@ public class BubbleView extends View {
         canvas.drawBitmap(bmp[kartabmp], 780, 5, paint);
 
     }
-
-
- /*   protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        Paint paint = new Paint();
-        if(animace==true){
-                pl[activeplayer].animposx += animacetest;
-        }
-
-
-        paint.setColor(Color.RED);
-        for(int i=0;i<Settings.pocethracu;i++){
-            canvas.drawBitmap(bmp[i+6],pl[i].animposx,pl[i].animposy,paint);
-        }
-
-        b3=BitmapFactory.decodeResource(getResources(), R.drawable.k1);
-        canvas.drawBitmap(bmp[kostka1bmp], 850, 530, paint);
-        b4=BitmapFactory.decodeResource(getResources(), R.drawable.k1);
-        canvas.drawBitmap(bmp[kostka2bmp], 1050, 530, paint);
-        b5=BitmapFactory.decodeResource(getResources(), R.drawable.orange);
-        canvas.drawBitmap(bmp[kartabmp], 780, 5, paint);
-
-        invalidate();
-
-    }*/
-
-
 
     protected void move() {
         if(nextplayer==true){
